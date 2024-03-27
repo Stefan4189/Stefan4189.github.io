@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirecting...</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2 id="countdownMessage" role="alert" aria-live="polite">
+    You will be redirected to the main page in 5 seconds. Please wait for redirection to complete.
+  </h2>
+  <div id="progressbar"></div> 
+
+  <script>
+    const countdownMessage = document.getElementById('countdownMessage');
+    const progressbar = document.getElementById('progressbar');
+
+    let countdown = 5; 
+
+    const interval = setInterval(() => {
+      countdown--; 
+
+      // Update progress bar
+      const width = (countdown / 5) * 100; 
+      progressbar.style.width = `${width}%`;
+
+      // Update countdown message
+      countdownMessage.textContent = `You will be redirected to the main page in ${countdown} seconds. Please wait for redirection to complete.`;
+
+      // Redirect when countdown reaches 0
+      if (countdown === 0) {
+        clearInterval(interval);
+        window.location.href = 'https://www.solo.to/Stefan_4189'; 
+      } 
+    }, 1000); 
+  </script>
+</body>
+</html>
+
